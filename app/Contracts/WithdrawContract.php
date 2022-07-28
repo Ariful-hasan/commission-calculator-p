@@ -4,5 +4,5 @@ namespace App\Contracts;
 
 interface WithdrawContract
 {
-    public function rules(): array
+    public function clculateWithdrawFee (array $record): float | int;
 }

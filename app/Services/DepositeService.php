@@ -7,7 +7,7 @@ use InvalidArgumentException;
 
 class DepositeService implements DepositeContract
 {
-    public function clculateDepositeFee($amount): float | int
+    public function clculateDepositeFee(int|float $amount): float | int
     {
         if (empty($amount)) {
             throw new InvalidArgumentException("Amount is not valid!");

@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts\CommissionContract;
+
 use Illuminate\Http\Request;
 
 class CommissionController extends Controller
 {
+    public function __construct(protected CommissionContract $commissionServie)
+    {
+        # code...
+    }
         
     /**
      * index entry point
@@ -15,20 +21,6 @@ class CommissionController extends Controller
      */
     public function index(): array
     {
-        return [
-            0.60,
-            3.00,
-            0.00,
-            0.06,
-            1.50,
-            0,
-            0.70,
-            0.30,
-            0.30,
-            3.00,
-            0.00,
-            0.00,
-            8612,
-        ];
+        return $this->commissionServie->importCSV();      
     }
 }
