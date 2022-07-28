@@ -5,7 +5,10 @@ return [
 
     "WITHDRAW_FEE_FOR_BUSINESS_USER" => 0.5,
     "WITHDRAW_FEE_FOR_PRIVATE_USER" => 0.3,
+    
     "DEPOSITE_FEE" => 0.03,
+    "CHARGE_FREE_WITHDRAW_TRANSACTION_PER_WEEK" => 3,
+    "CHARGE_FREE_WITHDRAW_AMOUNT_PER_WEEK" => 1000,
     
     "DEPOSITE" => "deposit",
     "WITHDRAW" => "withdraw",

@@ -3,6 +3,28 @@
 namespace App\Contracts;
 
 interface PrivateWithdrawContract
-{
-    public function calculatePrivateWithdrawFee(array $record): int|float;
+{    
+    /**
+     * process each row of csv 
+     * set data 
+     * return calculated commission
+     *
+     * @param  mixed $record as csv row
+     * @return int or float
+     */
+    public function processPrivateWithdrawTransaction(array $record): int|float;
+    
+    /**
+     * apply the withdraw condition 
+     * maximum limit per week
+     * maximum transaction per week
+     * return the commission fee
+     *
+     * @param  mixed $user
+     * @param  mixed $year
+     * @param  mixed $week
+     * @param  mixed $amount
+     * @return int or float
+     */
+    public function applyPrivateWithdrawRules(int $user, int $year, int $week, int|float $amount): int|float;
 }

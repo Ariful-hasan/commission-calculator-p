@@ -60,7 +60,7 @@ class CommissionService implements CommissionContract
 
     public function withdraw(array $record): int|float
     {
-        return $this->withdrawService->clculateWithdrawFee($record);
+        return $this->withdrawService->processWithdrawTransaction($record);
     }
 
     // get csv data
