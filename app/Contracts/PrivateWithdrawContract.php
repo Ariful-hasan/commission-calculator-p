@@ -12,7 +12,7 @@ interface PrivateWithdrawContract
      * @param  mixed $record as csv row
      * @return int or float
      */
-    public function processPrivateWithdrawTransaction(array $record): int|float;
+    public function processPrivateWithdrawTransaction(array $record): string;
         
     /**
      * apply the withdraw condition 
@@ -27,5 +27,5 @@ interface PrivateWithdrawContract
      * @param  mixed $amount
      * @return int or float
      */
-    public function applyPrivateWithdrawRules(int $user, int $year, int $week, string $currency, int|float $amount): int|float;
+    public function applyPrivateWithdrawRules(int $user, int $year, int $week, string $currency, int|float $amount): string;
 }

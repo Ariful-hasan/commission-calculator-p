@@ -2,19 +2,18 @@
 
 namespace App\Services;
 
+use App\Contracts\CalculateCommissionContract;
 use App\Contracts\DepositeContract;
-use InvalidArgumentException;
 
 class DepositeService implements DepositeContract
 {
-    public function clculateDepositeFee(int|float $amount): float | int
+    public function __construct(protected CalculateCommissionContract $calculateCommissionService)
     {
-        if (empty($amount)) {
-            throw new InvalidArgumentException("Amount is not valid!");
-        }
+        # code...
+    }
 
-        $amount = ($amount * config('constants.DEPOSITE_FEE'))/100;
-        
-        return is_float($amount) ? round($amount, 2) : $amount;
+    public function clculateDepositeFee(int|float $amount, string $currency, int|float $percentage): string
+    {
+       return $this->calculateCommissionService->calculateCommission($amount, $currency, $percentage);
     }
 }

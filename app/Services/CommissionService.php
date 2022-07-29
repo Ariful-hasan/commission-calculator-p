@@ -44,7 +44,7 @@ class CommissionService implements CommissionContract
         foreach ($this->records as $record) {
          
             if (isset($record[config('constants.OPERATION_TYPE')]) && $record[config('constants.OPERATION_TYPE')] == config('constants.DEPOSITE')) {
-                $commissions[] = $this->deposite($record[config('constants.OPERATION_AMOUNT')]);
+                $commissions[] = $this->deposite($record[config('constants.OPERATION_AMOUNT')], $record[config('constants.OPERATION_CURRENCY')], config('constants.DEPOSITE_FEE'));
             } elseif (isset($record[config('constants.OPERATION_TYPE')]) && $record[config('constants.OPERATION_TYPE')] == config('constants.WITHDRAW')) {
                 $commissions[] = $this->withdraw($record);
             } 
@@ -53,12 +53,12 @@ class CommissionService implements CommissionContract
         return $commissions;
     }
 
-    public function deposite(int|float $amount): int|float
+    public function deposite(int|float $amount, string $currency, int|float $percentage): string
     {
-        return $this->depositeService->clculateDepositeFee($amount);
+        return $this->depositeService->clculateDepositeFee($amount, $currency, $percentage);
     }
 
-    public function withdraw(array $record): int|float
+    public function withdraw(array $record): string
     {
         return $this->withdrawService->processWithdrawTransaction($record);
     }

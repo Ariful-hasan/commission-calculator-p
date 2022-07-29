@@ -12,14 +12,5 @@ interface WithdrawContract
      * @param  mixed $record as csv row
      * @return float or int
      */
-    public function processWithdrawTransaction (array $record): float | int;
-    
-    /**
-     * clculate the withdraw commission 
-     *
-     * @param  mixed $amount
-     * @param  mixed $percentage
-     * @return float or int 
-     */
-    public function clculateWithdrawFee (int|float $amount, string $currency, int|float $percentage): float | int;
+    public function processWithdrawTransaction (array $record): string;
 }

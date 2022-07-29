@@ -12,7 +12,7 @@ class CommissionController extends Controller
     }
         
     /**
-     * index entry point
+     * index is entry point
      * for the commission calculation.
      *
      * @return array

@@ -2,11 +2,13 @@
 
 namespace App\Providers;
 
+use App\Contracts\CalculateCommissionContract;
 use App\Contracts\CommissionContract;
 use App\Contracts\CsvImportContract;
 use App\Contracts\CurrencyContract;
 use App\Contracts\DepositeContract;
 use App\Contracts\WithdrawContract;
+use App\Services\CalculateCommissionService;
 use App\Services\CommissionService;
 use App\Services\CsvImportService;
 use App\Services\CurrencyService;
@@ -38,5 +40,6 @@ class CommissionServiceProvider extends ServiceProvider
         $this->app->bind(DepositeContract::class, DepositeService::class);
         $this->app->bind(WithdrawContract::class, WithdrawService::class);
         $this->app->bind(CurrencyContract::class, CurrencyService::class);
+        $this->app->bind(CalculateCommissionContract::class, CalculateCommissionService::class);
     }
 }
