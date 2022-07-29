@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Contracts\CommissionContract;
 
-use Illuminate\Http\Request;
-
 class CommissionController extends Controller
 {
     public function __construct(protected CommissionContract $commissionServie)

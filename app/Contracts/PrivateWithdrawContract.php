@@ -13,7 +13,7 @@ interface PrivateWithdrawContract
      * @return int or float
      */
     public function processPrivateWithdrawTransaction(array $record): int|float;
-    
+        
     /**
      * apply the withdraw condition 
      * maximum limit per week
@@ -23,8 +23,9 @@ interface PrivateWithdrawContract
      * @param  mixed $user
      * @param  mixed $year
      * @param  mixed $week
+     * @param  mixed $currency
      * @param  mixed $amount
      * @return int or float
      */
-    public function applyPrivateWithdrawRules(int $user, int $year, int $week, int|float $amount): int|float;
+    public function applyPrivateWithdrawRules(int $user, int $year, int $week, string $currency, int|float $amount): int|float;
 }

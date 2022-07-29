@@ -62,9 +62,4 @@ class CommissionService implements CommissionContract
     {
         return $this->withdrawService->processWithdrawTransaction($record);
     }
-
-    // get csv data
-    // check deposite or withdraw
-    // for withdraw check private/business
-    // apply business rules or private rules
 }

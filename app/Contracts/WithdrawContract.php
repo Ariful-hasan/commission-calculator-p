@@ -21,5 +21,5 @@ interface WithdrawContract
      * @param  mixed $percentage
      * @return float or int 
      */
-    public function clculateWithdrawFee (int|float $amount, int|float $percentage): float | int;
+    public function clculateWithdrawFee (int|float $amount, string $currency, int|float $percentage): float | int;
 }
