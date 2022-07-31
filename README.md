@@ -6,7 +6,7 @@ This is project runs on PHP 8.1.* and Laravel 9.*
 ```bash 
     1.  change .env.example to ".env".
 
-    2.  put a csv file into example_project/public folder and named it "transactions.csv".
+    2.  put a csv file into commission_calcualtor_p/public folder and named it "transactions.csv".
 ```
 You can also modify the below things according to the client's requirements on .env
 ```bash 
@@ -36,6 +36,8 @@ http://127.0.0.1:8000/
 ```
 
 ### Test :
+All the tests can be accessed form <**commission_calcualtor_p/tests**>
+#### Tests run : 
 ```bash
 php artisan test
 ```
