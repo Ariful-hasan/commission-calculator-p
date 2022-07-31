@@ -8,6 +8,7 @@ use App\Contracts\WithdrawContract;
 use App\Contracts\CurrencyContract;
 use Carbon\Carbon;
 use Exception;
+use InvalidArgumentException;
 
 class WithdrawService implements WithdrawContract, PrivateWithdrawContract
 {
@@ -102,7 +103,8 @@ class WithdrawService implements WithdrawContract, PrivateWithdrawContract
     public function convertCurrencyInEuros(string $currency, int|float $amount): int|float
     {
         if (!isset($this->currencyExchangeRates[$currency])) {
-            throw new Exception("Currency not found!");
+            // throw new Exception("Currency not found!");
+            throw new InvalidArgumentException("Currency not found!");
         }
 
         return $currency != config('constants.BASE_CURRENCY') ? $amount/$this->currencyExchangeRates[$currency] : $amount;

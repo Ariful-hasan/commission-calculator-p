@@ -9,9 +9,9 @@ class CurrencyService implements CurrencyContract
 {
     private string $currencyExchangeApi;
 
-    public function __construct()
+    public function __construct(string $apiUrl=null)
     {
-        $this->currencyExchangeApi = config('constants.CURRENCY_EXCHANGE_API');
+        $this->currencyExchangeApi = $apiUrl ?? config('constants.CURRENCY_EXCHANGE_API');
     }
 
     public function getCurrencyExchangeRates(): array
